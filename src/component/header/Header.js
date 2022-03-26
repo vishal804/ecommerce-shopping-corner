@@ -3,7 +3,7 @@ import "./header.css";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div>
+    <>
       {/* Header Navigation */}
       <header>
         <nav className="navbar box-shadow">
@@ -37,7 +37,7 @@ const Header = () => {
         </nav>
       </header>
       {/* Header Navigation */}
-    </div>
+    </>
   );
 };
 
