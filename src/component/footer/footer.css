@@ -1,0 +1,51 @@
+/* Footer */
+:root {
+    --bg-color: #000000;
+  }
+  
+  .footer {
+    gap: 1.5rem;
+    background-color: var(--bg-color);
+    font-size: 0.9rem;
+    padding: 3rem;
+  }
+  
+  .footer .brand {
+    line-height: 3.3rem;
+  }
+  
+  .footer .logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  
+  .links-handle {
+    gap: 1rem;
+  }
+  
+  .item-title {
+    font-size: 1.3rem;
+    color: var(--secondary-text-color);
+  }
+  
+  .quick-links {
+    list-style: none;
+    font-weight: 300;
+    line-height: 2.2rem;
+  }
+  
+  .footer a,
+  .links-handle i {
+    color: var(--secondary-text-color);
+  }
+  
+  .footer p {
+    color: var(--secondary-text-color);
+  }
+  
+  .footer a {
+    text-decoration: none;
+  }
+  
+  /* Footer */
+  
