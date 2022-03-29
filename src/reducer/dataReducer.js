@@ -18,36 +18,53 @@ const dataReducer = (state, action) => {
         ...state,
         products: action.payload,
       };
-      case "CLEAR_FILTERS": 
+    case "CLEAR_FILTERS":
       return {
-          ...state,
-          filters: {
-            sortBy: "",
-            sortByBrand: [],
-            sortBySize: [],
-            idealForClothing: [],
-            categoryValue: []
-          }
-      }
-      case "HIGH_TO_LOW":
+        ...state,
+        filters: {
+          sortBy: "",
+          sortByBrand: [],
+          sortBySize: [],
+          idealForClothing: [],
+          categoryValue: [],
+        },
+      };
+    case "HIGH_TO_LOW":
       return {
-          ...state,
-          filters: {
-              ...state.filters,
-              sortBy: action.payload
-          }
-      }
+        ...state,
+        filters: {
+          ...state.filters,
+          sortBy: action.payload,
+        },
+      };
 
-      case "LOW_TO_HIGH":
+    case "LOW_TO_HIGH":
       return {
-          ...state,
-          filters: {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortBy: action.payload,
+        },
+      };
+    case "SORT_BY_BRAND":
+      return state.filters.sortByBrand.includes(action.payload)
+        ? {
+            ...state,
+            filters: {
               ...state.filters,
-              sortBy: action.payload
+              sortByBrand: state.filters.sortByBrand.filter(
+                (brand) => brand !== action.payload
+              ),
+            },
           }
-      }
+        : {
+            ...state,
+            filters: {
+              ...state.filters,
+              sortByBrand: state.filters.sortByBrand.concat(action.payload),
+            },
+          };
   }
-  
 };
 
 export { initialState, dataReducer };

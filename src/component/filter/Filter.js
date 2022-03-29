@@ -2,7 +2,10 @@ import React from "react";
 import { useData } from "../../context/data-context";
 
 const Filter = () => {
-  const { dispatch } = useData();
+  const { state, dispatch } = useData();
+
+  const brands = ["AmorMente", "Nike", "Reebok", "TRIPR", "Eyebogler"];
+
   return (
     <>
       <div className="list-heading flex flex-space-between">
@@ -35,6 +38,24 @@ const Filter = () => {
           ></input>
           Price - High to Low
         </label>
+      </div>
+
+      <div className="list-heading flex flex-coloum">
+        {brands.map((brand) => {
+          return (
+            <div key={brand}>
+              <input
+                type="checkbox"
+                id="brand"
+                checked={state.filters.sortByBrand.includes(brand)}
+                onChange={() =>
+                  dispatch({ type: "SORT_BY_BRAND", payload: brand })
+                }
+              ></input>
+              <label htmlFor="brand">{brand}</label>
+            </div>
+          );
+        })}
       </div>
     </>
   );

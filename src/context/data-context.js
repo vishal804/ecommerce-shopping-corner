@@ -21,13 +21,25 @@ const DataProvider = ({ children }) => {
     return data;
   };
 
-const filterData = () => {}
+  const filterData = (data) => {
+    if (data) {
+      let filteredData = [...data];
 
-const sortedData = sortData(state.products)
-const filteredData = filterData(sortedData) 
+      if (state.filters.sortByBrand.length !== 0) {
+        filteredData = filteredData.filter((product) =>
+          state.filters.sortByBrand.includes(product.brand)
+        );
+      }
+      return filteredData;
+    }
+    return [];
+  };
+
+  const sortedData = sortData(state.products);
+  const filteredData = filterData(sortedData);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, filteredData:sortedData }}>
+    <DataContext.Provider value={{ state, dispatch, filteredData }}>
       {children}
     </DataContext.Provider>
   );
