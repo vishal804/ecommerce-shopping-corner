@@ -5,7 +5,7 @@ const Filter = () => {
   const { state, dispatch } = useData();
 
   const brands = ["AmorMente", "Nike", "Reebok", "TRIPR", "Eyebogler"];
-
+  const idealFor = ["Men", "Women"];
   const categories = [
     "Summer Collection",
     "Winter Collection",
@@ -77,6 +77,24 @@ const Filter = () => {
                 }
               ></input>
               <label htmlFor="category">{category}</label>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="list-heading flex flex-coloum">
+        {idealFor.map((idealFor) => {
+          return (
+            <div key={idealFor}>
+              <input
+                type="checkbox"
+                id="idealFor"
+                checked={state.filters.sortByIdealFor.includes(idealFor)}
+                onChange={() =>
+                  dispatch({ type: "SORT_BY_IDEALFOR", payload: idealFor })
+                }
+              ></input>
+              <label htmlFor="idealFor">{idealFor}</label>
             </div>
           );
         })}

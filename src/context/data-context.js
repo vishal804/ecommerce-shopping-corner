@@ -37,6 +37,13 @@ const DataProvider = ({ children }) => {
         );
       }
 
+      if (state.filters.sortByIdealFor.length !== 0) {
+        filteredData = filteredData.filter((product) =>
+          product.idealFor.some((element) =>
+            state.filters.sortByIdealFor.includes(element)
+          )
+        );
+      }
       return filteredData;
     }
     return [];
