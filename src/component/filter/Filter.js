@@ -6,6 +6,12 @@ const Filter = () => {
 
   const brands = ["AmorMente", "Nike", "Reebok", "TRIPR", "Eyebogler"];
 
+  const categories = [
+    "Summer Collection",
+    "Winter Collection",
+    "Mansoom Collection",
+  ];
+
   return (
     <>
       <div className="list-heading flex flex-space-between">
@@ -53,6 +59,24 @@ const Filter = () => {
                 }
               ></input>
               <label htmlFor="brand">{brand}</label>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="list-heading flex flex-coloum">
+        {categories.map((category) => {
+          return (
+            <div key={category}>
+              <input
+                type="checkbox"
+                id="category"
+                checked={state.filters.sortByCategory.includes(category)}
+                onChange={() =>
+                  dispatch({ type: "SORT_BY_CATEGORY", payload: category })
+                }
+              ></input>
+              <label htmlFor="category">{category}</label>
             </div>
           );
         })}

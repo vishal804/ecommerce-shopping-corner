@@ -5,9 +5,9 @@ const initialState = {
   filters: {
     sortBy: "",
     sortByBrand: [],
+    sortByCategory: [],
     sortBySize: [],
     idealForClothing: [],
-    categoryValue: [],
   },
 };
 
@@ -24,9 +24,9 @@ const dataReducer = (state, action) => {
         filters: {
           sortBy: "",
           sortByBrand: [],
+          sortByCategory: [],
           sortBySize: [],
           idealForClothing: [],
-          categoryValue: [],
         },
       };
     case "HIGH_TO_LOW":
@@ -62,6 +62,27 @@ const dataReducer = (state, action) => {
             filters: {
               ...state.filters,
               sortByBrand: state.filters.sortByBrand.concat(action.payload),
+            },
+          };
+
+    case "SORT_BY_CATEGORY":
+      return state.filters.sortByCategory.includes(action.payload)
+        ? {
+            ...state,
+            filters: {
+              ...state.filters,
+              sortByCategory: state.filters.sortByCategory.filter(
+                (category) => category !== action.payload
+              ),
+            },
+          }
+        : {
+            ...state,
+            filters: {
+              ...state.filters,
+              sortByCategory: state.filters.sortByCategory.concat(
+                action.payload
+              ),
             },
           };
   }

@@ -35,7 +35,7 @@ export const products = [
     priceAfterDiscount: 985,
     originalPrice: 2325,
     discount: 57,
-    whichCategory: "Summer Collection",
+    category: "Summer Collection",
     sizeAvailable: ["S", "M"],
     idealFor: ["Women"],
     Image: productImage,
@@ -49,7 +49,7 @@ export const products = [
     discount: 57,
     sizeAvailable: ["S", "M"],
     idealFor: ["Men"],
-    whichCategory: "Summer Collection",
+    category: "Summer Collection",
     Image: productImage,
   },
   {
@@ -61,7 +61,7 @@ export const products = [
     discount: 57,
     sizeAvailable: ["S", "M"],
     idealFor: ["Women"],
-    whichCategory: "Summer Collection",
+    category: "Summer Collection",
     Image: productImage,
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     discount: 65,
     sizeAvailable: ["L"],
     idealFor: ["Men"],
-    whichCategory: "Winter Collection",
+    category: "Winter Collection",
     Image: productImage,
   },
   {
@@ -85,8 +85,7 @@ export const products = [
     discount: 57,
     sizeAvailable: ["M", "L"],
     idealFor: ["Women"],
-    whichCategory: "Mansoom Collection",
+    category: "Mansoom Collection",
     Image: productImage,
   },
-
 ];

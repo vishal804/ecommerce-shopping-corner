@@ -31,7 +31,7 @@ const ProductPage = () => {
           <h2 className="product-heading">
             Showing All Products
             <span>
-              (Showing <span>{state.products.length}</span> products)
+              (Showing <span>{filteredData.length}</span> products)
             </span>
           </h2>
           <div className="product-container card-style">

@@ -30,6 +30,13 @@ const DataProvider = ({ children }) => {
           state.filters.sortByBrand.includes(product.brand)
         );
       }
+
+      if (state.filters.sortByCategory.length !== 0) {
+        filteredData = filteredData.filter((product) =>
+          state.filters.sortByCategory.includes(product.category)
+        );
+      }
+
       return filteredData;
     }
     return [];
