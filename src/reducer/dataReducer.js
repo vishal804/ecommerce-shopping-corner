@@ -3,6 +3,7 @@ const initialState = {
   cart: [],
   wishlist: [],
   filters: {
+    priceRange: 5000,
     sortBy: "",
     sortByBrand: [],
     sortByCategory: [],
@@ -22,6 +23,7 @@ const dataReducer = (state, action) => {
       return {
         ...state,
         filters: {
+          priceRange: 5000,
           sortBy: "",
           sortByBrand: [],
           sortByCategory: [],
@@ -29,6 +31,16 @@ const dataReducer = (state, action) => {
           sortByIdealFor: [],
         },
       };
+
+    case "SORT_BY_PRICERANGE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          priceRange: action.payload,
+        },
+      };
+
     case "HIGH_TO_LOW":
       return {
         ...state,

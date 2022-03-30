@@ -22,6 +22,31 @@ const Filter = () => {
       </div>
 
       <div className="list-heading flex flex-coloum">
+        <h4>Price</h4>
+        <datalist id="tickmarks">
+          <option value="5000" label="5K"></option>
+          <option value="4000" label="4K"></option>
+          <option value="3000" label="3K"></option>
+          <option value="2000" label="2K"></option>
+          <option value="1000" label="1K"></option>
+        </datalist>
+        <input
+          type="range"
+          value={state.filters.priceRange}
+          list="tickmarks"
+          min="1000"
+          max="5000"
+          step="1000"
+          onChange={(e) =>
+            dispatch({
+              type: "SORT_BY_PRICERANGE",
+              payload: e.target.value,
+            })
+          }
+        />
+      </div>
+
+      <div className="list-heading flex flex-coloum">
         <h4>Sort by</h4>
         <label htmlfor="radio">
           <input

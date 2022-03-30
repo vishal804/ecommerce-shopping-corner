@@ -52,6 +52,10 @@ const DataProvider = ({ children }) => {
           )
         );
       }
+      if (state.filters.priceRange.length !== 0)
+        filteredData = filteredData.filter(
+          (product) => product.priceAfterDiscount <= state.filters.priceRange
+        );
 
       return filteredData;
     }
