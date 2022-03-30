@@ -44,6 +44,15 @@ const DataProvider = ({ children }) => {
           )
         );
       }
+
+      if (state.filters.sortBySize.length !== 0) {
+        filteredData = filteredData.filter((prod) =>
+          prod.sizeAvailable.some((ele) =>
+            state.filters.sortBySize.includes(ele)
+          )
+        );
+      }
+
       return filteredData;
     }
     return [];

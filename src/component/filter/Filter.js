@@ -6,6 +6,7 @@ const Filter = () => {
 
   const brands = ["AmorMente", "Nike", "Reebok", "TRIPR", "Eyebogler"];
   const idealFor = ["Men", "Women"];
+  const sizeAvailable = ["S", "M", "L"];
   const categories = [
     "Summer Collection",
     "Winter Collection",
@@ -47,6 +48,7 @@ const Filter = () => {
       </div>
 
       <div className="list-heading flex flex-coloum">
+        <h4>Brands</h4>
         {brands.map((brand) => {
           return (
             <div key={brand}>
@@ -65,24 +67,7 @@ const Filter = () => {
       </div>
 
       <div className="list-heading flex flex-coloum">
-        {categories.map((category) => {
-          return (
-            <div key={category}>
-              <input
-                type="checkbox"
-                id="category"
-                checked={state.filters.sortByCategory.includes(category)}
-                onChange={() =>
-                  dispatch({ type: "SORT_BY_CATEGORY", payload: category })
-                }
-              ></input>
-              <label htmlFor="category">{category}</label>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="list-heading flex flex-coloum">
+        <h4>Ideal For</h4>
         {idealFor.map((idealFor) => {
           return (
             <div key={idealFor}>
@@ -95,6 +80,44 @@ const Filter = () => {
                 }
               ></input>
               <label htmlFor="idealFor">{idealFor}</label>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="list-heading flex flex-coloum">
+        <h4>Sizes</h4>
+        {sizeAvailable.map((sizeAvailable) => {
+          return (
+            <div key={sizeAvailable}>
+              <input
+                type="checkbox"
+                id="sizeAvailable"
+                checked={state.filters.sortBySize.includes(sizeAvailable)}
+                onChange={() =>
+                  dispatch({ type: "SORT_BY_SIZE", payload: sizeAvailable })
+                }
+              ></input>
+              <label htmlFor="sizeAvailable">{sizeAvailable}</label>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="list-heading flex flex-coloum">
+        <h4>Categories</h4>
+        {categories.map((category) => {
+          return (
+            <div key={category}>
+              <input
+                type="checkbox"
+                id="category"
+                checked={state.filters.sortByCategory.includes(category)}
+                onChange={() =>
+                  dispatch({ type: "SORT_BY_CATEGORY", payload: category })
+                }
+              ></input>
+              <label htmlFor="category">{category}</label>
             </div>
           );
         })}

@@ -105,6 +105,25 @@ const dataReducer = (state, action) => {
               ),
             },
           };
+
+    case "SORT_BY_SIZE":
+      return state.filters.sortBySize.includes(action.payload)
+        ? {
+            ...state,
+            filters: {
+              ...state.filters,
+              sortBySize: state.filters.sortBySize.filter(
+                (size) => size !== action.payload
+              ),
+            },
+          }
+        : {
+            ...state,
+            filters: {
+              ...state.filters,
+              sortBySize: state.filters.sortBySize.concat(action.payload),
+            },
+          };
   }
 };
 
