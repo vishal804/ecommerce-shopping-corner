@@ -39,6 +39,7 @@ export const products = [
     sizeAvailable: ["S", "M"],
     idealFor: ["Women"],
     Image: productImage,
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -51,6 +52,7 @@ export const products = [
     idealFor: ["Men"],
     category: "Summer Collection",
     Image: productImage,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -63,6 +65,7 @@ export const products = [
     idealFor: ["Women"],
     category: "Summer Collection",
     Image: productImage,
+    rating: 3,
   },
   {
     _id: uuid(),
@@ -75,6 +78,7 @@ export const products = [
     idealFor: ["Men"],
     category: "Winter Collection",
     Image: productImage,
+    rating: 2,
   },
   {
     _id: uuid(),
@@ -87,6 +91,7 @@ export const products = [
     idealFor: ["Women"],
     category: "Mansoom Collection",
     Image: productImage,
+    rating: 1,
   },
   {
     _id: uuid(),
@@ -99,5 +104,6 @@ export const products = [
     idealFor: ["Women"],
     category: "Mansoom Collection",
     Image: productImage,
+    rating: 3,
   },
 ];

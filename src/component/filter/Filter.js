@@ -7,6 +7,7 @@ const Filter = () => {
   const brands = ["AmorMente", "Nike", "Reebok", "TRIPR", "Eyebogler"];
   const idealFor = ["Men", "Women"];
   const sizeAvailable = ["S", "M", "L"];
+  const ratingStar = [1, 2, 3, 4, 5];
   const categories = [
     "Summer Collection",
     "Winter Collection",
@@ -61,7 +62,7 @@ const Filter = () => {
         </label>
         <label htmlfor="radio">
           <input
-            id="radio-2"
+            id="radio"
             type="radio"
             name="sort-by"
             onChange={() =>
@@ -90,7 +91,27 @@ const Filter = () => {
           );
         })}
       </div>
-
+      <div className="list-heading flex flex-coloum">
+        <h4>Rating</h4>
+        {ratingStar.map((rating) => {
+          return (
+            <div key={rating}>
+              <label htmlFor="rating">
+                <input
+                  type="radio"
+                  id="rating"
+                  name="radio"
+                  checked={state.filters.sortByRating === rating}
+                  onChange={() =>
+                    dispatch({ type: "SORT_BY_RATING", payload: rating })
+                  }
+                ></input>
+                {rating} Star & Above
+              </label>
+            </div>
+          );
+        })}
+      </div>
       <div className="list-heading flex flex-coloum">
         <h4>Ideal For</h4>
         {idealFor.map((idealFor) => {

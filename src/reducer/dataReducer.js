@@ -6,6 +6,7 @@ const initialState = {
     priceRange: 5000,
     sortBy: "",
     sortByBrand: [],
+    sortByRating: null,
     sortByCategory: [],
     sortBySize: [],
     sortByIdealFor: [],
@@ -26,6 +27,7 @@ const dataReducer = (state, action) => {
           priceRange: 5000,
           sortBy: "",
           sortByBrand: [],
+          sortByRating: null,
           sortByCategory: [],
           sortBySize: [],
           sortByIdealFor: [],
@@ -56,6 +58,15 @@ const dataReducer = (state, action) => {
         filters: {
           ...state.filters,
           sortBy: action.payload,
+        },
+      };
+
+    case "SORT_BY_RATING":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortByRating: action.payload,
         },
       };
     case "SORT_BY_BRAND":

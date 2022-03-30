@@ -57,6 +57,11 @@ const DataProvider = ({ children }) => {
           (product) => product.priceAfterDiscount <= state.filters.priceRange
         );
 
+      if (state.filters.sortByRating !== null)
+        filteredData = filteredData.filter(
+          (product) => product.rating >= state.filters.sortByRating
+        );
+
       return filteredData;
     }
     return [];
