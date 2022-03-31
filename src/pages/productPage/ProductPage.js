@@ -7,14 +7,12 @@ import { useData } from "../../context/data-context";
 const ProductPage = () => {
   const { dispatch, filteredData } = useData();
 
-  const getData = async () => {
-    const response = await axios.get("/api/products");
-    dispatch({ type: "SET_PRODUCTS", payload: response.data.products });
-  };
-
   useEffect(() => {
-    getData();
-  }, [getData]);
+    (async () => {
+      const response = await axios.get("/api/products");
+      dispatch({ type: "SET_PRODUCTS", payload: response.data.products });
+    })();
+  }, []);
 
   return (
     <>
