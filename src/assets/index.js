@@ -1,1 +1,16 @@
-export {default as productImage} from "./Products/productImage.jpg"
+export { default as cap1 } from "./productImage/cap1.jpg";
+export { default as cap } from "./productImage/cap.jpg";
+export { default as cap2 } from "./productImage/cap2.jpg";
+export { default as hodie } from "./productImage/hodie.jpg";
+export { default as jacket } from "./productImage/jacket.jpg";
+export { default as jeansCombo } from "./productImage/jeansCombo.jpg";
+export { default as leatherJacket } from "./productImage/leatherJacket.jpg";
+export { default as shirt } from "./productImage/shirt.jpg";
+export { default as shirt1 } from "./productImage/shirt1.jpg";
+export { default as suit } from "./productImage/suit.jpg";
+export { default as sweater } from "./productImage/sweater.jpg";
+export { default as trousers } from "./productImage/trousers.jpg";
+export { default as tshirt } from "./productImage/tshirt.png";
+export { default as tshirt1 } from "./productImage/tshirt1.jpg";
+export { default as tshirtCombo } from "./productImage/tshirtCombo.jpg";
+export { default as headPhone } from "./productImage/headPhone.jpg";

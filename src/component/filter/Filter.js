@@ -4,7 +4,7 @@ import { useData } from "../../context/data-context";
 const Filter = () => {
   const { state, dispatch } = useData();
 
-  const brands = ["AmorMente", "Nike", "Reebok", "TRIPR", "Eyebogler"];
+  const brands = ["AmorMente", "Nike", "Reebok", "TRIPR"];
   const idealFor = ["Men", "Women"];
   const sizeAvailable = ["S", "M", "L"];
   const ratingStar = [1, 2, 3, 4, 5];
@@ -91,6 +91,26 @@ const Filter = () => {
           );
         })}
       </div>
+
+      <div className="list-heading flex flex-coloum">
+        <h4>Categories</h4>
+        {categories.map((category) => {
+          return (
+            <div key={category}>
+              <input
+                type="checkbox"
+                id="category"
+                checked={state.filters.sortByCategory.includes(category)}
+                onChange={() =>
+                  dispatch({ type: "SORT_BY_CATEGORY", payload: category })
+                }
+              ></input>
+              <label htmlFor="category">{category}</label>
+            </div>
+          );
+        })}
+      </div>
+
       <div className="list-heading flex flex-coloum">
         <h4>Rating</h4>
         {ratingStar.map((rating) => {
@@ -145,25 +165,6 @@ const Filter = () => {
                 }
               ></input>
               <label htmlFor="sizeAvailable">{sizeAvailable}</label>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="list-heading flex flex-coloum">
-        <h4>Categories</h4>
-        {categories.map((category) => {
-          return (
-            <div key={category}>
-              <input
-                type="checkbox"
-                id="category"
-                checked={state.filters.sortByCategory.includes(category)}
-                onChange={() =>
-                  dispatch({ type: "SORT_BY_CATEGORY", payload: category })
-                }
-              ></input>
-              <label htmlFor="category">{category}</label>
             </div>
           );
         })}
