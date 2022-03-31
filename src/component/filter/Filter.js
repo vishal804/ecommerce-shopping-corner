@@ -19,7 +19,12 @@ const Filter = () => {
       <div className="list-heading flex flex-space-between">
         <h3>Filters</h3>
 
-        <p onClick={() => dispatch({ type: "CLEAR_FILTERS" })}>Clear</p>
+        <p
+          className="list-subheading"
+          onClick={() => dispatch({ type: "CLEAR_FILTERS" })}
+        >
+          CLEAR ALL
+        </p>
       </div>
 
       <div className="list-heading flex flex-coloum">
@@ -54,6 +59,7 @@ const Filter = () => {
             id="radio"
             type="radio"
             name="sort-by"
+            checked={state.filters.sortBy === "LOW_TO_HIGH"}
             onChange={() =>
               dispatch({ type: "LOW_TO_HIGH", payload: "LOW_TO_HIGH" })
             }
@@ -65,6 +71,7 @@ const Filter = () => {
             id="radio"
             type="radio"
             name="sort-by"
+            checked={state.filters.sortBy === "HIGH_TO_LOW"}
             onChange={() =>
               dispatch({ type: "HIGH_TO_LOW", payload: "HIGH_TO_LOW" })
             }
