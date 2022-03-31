@@ -5,7 +5,7 @@ import "./productPage.css";
 import { useData } from "../../context/data-context";
 
 const ProductPage = () => {
-  const { state, dispatch, filteredData } = useData();
+  const { dispatch, filteredData } = useData();
 
   const getData = async () => {
     const response = await axios.get("/api/products");

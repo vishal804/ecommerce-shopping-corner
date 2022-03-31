@@ -8,21 +8,22 @@ const ProductCard = ({ productDetails }) => {
     priceAfterDiscount,
     originalPrice,
     discount,
-    sizeAvailable,
-    idealFor,
     category,
     Image,
+    alt,
   } = productDetails;
   return (
     <>
       <div className="card">
         <div className="card-image-container">
-          <img className="image-responsive" src={Image} alt="product Image" />
+          <img className="image-responsive" src={Image} alt={alt} />
           <i className="card-badge far fa-heart"></i>
         </div>
         <div>
           <div className="card-text-container">
+            <p> {category} </p>
             <p>{brand}</p>
+
             <h5 className="card-heading">{title}</h5>
             <div className="flex">
               <p className="card-subheading">₹ {priceAfterDiscount}</p>

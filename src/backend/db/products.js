@@ -35,6 +35,7 @@ export const products = [
     idealFor: ["Men"],
     Image: headPhone,
     rating: 5,
+    alt: "Bluetooth Headphone",
   },
 
   {
@@ -49,6 +50,7 @@ export const products = [
     idealFor: ["Women"],
     Image: cap1,
     rating: 5,
+    alt: "Woven Beanie Cap",
   },
   {
     _id: uuid(),
@@ -62,6 +64,7 @@ export const products = [
     category: "Winter Collection",
     Image: cap,
     rating: 3,
+    alt: "Full Cap",
   },
   {
     _id: uuid(),
@@ -75,6 +78,7 @@ export const products = [
     category: "Summer Collection",
     Image: cap2,
     rating: 5,
+    alt: "Stylish Cap",
   },
   {
     _id: uuid(),
@@ -88,6 +92,7 @@ export const products = [
     category: "Winter Collection",
     Image: hodie,
     rating: 5,
+    alt: "Stylish Hodie",
   },
   {
     _id: uuid(),
@@ -101,6 +106,7 @@ export const products = [
     category: "Winter Collection",
     Image: jacket,
     rating: 4,
+    alt: "Mens Jacket",
   },
   {
     _id: uuid(),
@@ -114,6 +120,7 @@ export const products = [
     category: "Mansoom Collection",
     Image: jeansCombo,
     rating: 3,
+    alt: "Jeans Combo",
   },
   {
     _id: uuid(),
@@ -127,6 +134,7 @@ export const products = [
     category: "Mansoom Collection",
     Image: leatherJacket,
     rating: 3,
+    alt: "Leather Jacket",
   },
   {
     _id: uuid(),
@@ -140,6 +148,7 @@ export const products = [
     category: "Winter Collection",
     Image: shirt,
     rating: 1,
+    alt: "Stylish Shirt",
   },
   {
     _id: uuid(),
@@ -153,6 +162,7 @@ export const products = [
     category: "Summer Collection",
     Image: shirt1,
     rating: 2,
+    alt: "Woman Stylish Jacket",
   },
   {
     _id: uuid(),
@@ -166,6 +176,7 @@ export const products = [
     category: "Mansoom Collection",
     Image: suit,
     rating: 5,
+    alt: "Stylish Shirt",
   },
   {
     _id: uuid(),
@@ -179,6 +190,7 @@ export const products = [
     category: "Winter Collection",
     Image: sweater,
     rating: 3,
+    alt: "Sylish Sweater",
   },
   {
     _id: uuid(),
@@ -192,6 +204,7 @@ export const products = [
     category: "Monsoom Collection",
     Image: trousers,
     rating: 1,
+    alt: "Stylish Trousers",
   },
   {
     _id: uuid(),
@@ -205,6 +218,7 @@ export const products = [
     category: "Monsoom Collection",
     Image: tshirt,
     rating: 4,
+    alt: "Stylish Tshirt",
   },
   {
     _id: uuid(),
@@ -218,6 +232,7 @@ export const products = [
     category: "Monsoom Collection",
     Image: tshirt1,
     rating: 2,
+    alt: "Stylish Tshirt",
   },
   {
     _id: uuid(),
@@ -231,5 +246,6 @@ export const products = [
     category: "Monsoom Collection",
     Image: tshirtCombo,
     rating: 3,
+    alt: "Tshirt Combo",
   },
 ];

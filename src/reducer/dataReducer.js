@@ -147,6 +147,9 @@ const dataReducer = (state, action) => {
               sortBySize: state.filters.sortBySize.concat(action.payload),
             },
           };
+
+    default:
+      return state;
   }
 };
 
