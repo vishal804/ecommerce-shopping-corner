@@ -1,22 +1,10 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { Filter, ProductCard } from "../../component";
 import "./productPage.css";
 import { useData } from "../../context/data-context";
 
 const ProductPage = () => {
-  const { dispatch, filteredData } = useData();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get("/api/products");
-        dispatch({ type: "SET_PRODUCTS", payload: response.data.products });
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  const { filteredData } = useData();
 
   return (
     <>

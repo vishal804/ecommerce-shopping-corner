@@ -1,10 +1,23 @@
+import React, { useEffect } from "react";
 import { createContext, useContext, useReducer } from "react";
 import { dataReducer, initialState } from "../reducer/dataReducer";
+import axios from "axios";
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("/api/products");
+        dispatch({ type: "SET_PRODUCTS", payload: response.data.products });
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   const sortData = (data) => {
     if (state.filters.sortBy === "HIGH_TO_LOW") {
