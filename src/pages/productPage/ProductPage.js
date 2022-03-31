@@ -9,8 +9,12 @@ const ProductPage = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get("/api/products");
-      dispatch({ type: "SET_PRODUCTS", payload: response.data.products });
+      try {
+        const response = await axios.get("/api/products");
+        dispatch({ type: "SET_PRODUCTS", payload: response.data.products });
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, []);
 
