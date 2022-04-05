@@ -20,6 +20,17 @@ const dataReducer = (state, action) => {
         ...state,
         products: action.payload,
       };
+      case "SET_USER_CART":
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
+    case "SET_USER_WISHLIST":
+      return {
+        ...state,
+        wishlist: action.payload,
+      };
     case "CLEAR_FILTERS":
       return {
         ...state,

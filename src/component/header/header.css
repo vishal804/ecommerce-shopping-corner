@@ -35,3 +35,12 @@ input {
 .list-subheading {
   cursor: pointer;
 }
+
+.quick-links {
+  margin: 1rem 0 0 3rem;
+  font-size: 1rem;
+}
+.quick-link {
+  margin: 0 1rem 0 0;
+  cursor: pointer;
+}

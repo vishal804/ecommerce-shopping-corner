@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ProductPage } from "./pages";
-import { Footer, Header } from "./component";
+import { CartPage, HomePage, ProductPage } from "./pages";
+import { Header } from "./component";
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
-      <Footer />
     </>
   );
 }
