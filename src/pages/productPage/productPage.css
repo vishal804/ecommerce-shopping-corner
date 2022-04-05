@@ -1,0 +1,23 @@
+.product-page-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.list-heading label {
+  margin: 0.5rem 0;
+}
+
+.product-heading {
+  margin: 2rem 0 0 0;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  margin: 3rem;
+}
+
+.card-btn-container {
+  padding: 1rem;
+}

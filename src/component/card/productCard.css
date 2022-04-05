@@ -1,0 +1,29 @@
+/* Global Card Style */
+
+.card-style .card {
+  background-color: var(--background-color);
+  border: 1px solid var(--secondary-text-color);
+  margin: 0;
+}
+
+.card-image-container {
+  height: 15.625rem;
+}
+
+.card-horizontal-style .card {
+  background-color: var(--background-color);
+  border: 1px solid var(--secondary-text-color);
+  margin: 0 0 1rem 0;
+}
+
+.card:hover {
+  box-shadow: 0 0 1rem var(--tertiary-color);
+}
+
+.card-style .card-subheading {
+  margin: 0.3rem;
+}
+
+.card-style .line-strike {
+  text-decoration-line: line-through;
+}
