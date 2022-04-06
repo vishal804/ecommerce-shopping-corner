@@ -49,3 +49,29 @@ export const updateQuantity = async (id, dispatch, updateType) => {
     console.log(err);
   }
 };
+
+export const addToWishlist = async (product, dispatch) => {
+  try {
+    const response = await axios.post(
+      "/api/user/wishlist",
+      { product },
+      {
+        headers: { authorization: encodedToken },
+      }
+    );
+    dispatch({ type: "SET_USER_WISHLIST", payload: response.data.wishlist });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const removeFromWishlist = async (id, dispatch) => {
+  try {
+    const response = await axios.delete(`/api/user/wishlist/${id}`, {
+      headers: { authorization: encodedToken },
+    });
+    dispatch({ type: "SET_USER_WISHLIST", payload: response.data.wishlist });
+  } catch (err) {
+    console.log(err);
+  }
+};

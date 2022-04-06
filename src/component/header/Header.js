@@ -34,9 +34,13 @@ const Header = () => {
                 <Link to="/">Login</Link>
               </button>
             </li>
-            <li className="no-show">
+
+            <li className="notification no-show">
               <Link to="/wishlist">
                 <i className="fa-2x far fa-heart"></i>
+                {state.wishlist.length > 0 ? (
+                  <span className="badge">{state.wishlist.length}</span>
+                ) : null}
               </Link>
             </li>
             <li className="notification no-show">

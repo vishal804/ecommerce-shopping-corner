@@ -2,7 +2,7 @@ import React from "react";
 import { useData } from "../../context/data-context";
 import { useNavigate } from "react-router-dom";
 import "./productCard.css";
-import { addToCart } from "../../utility";
+import { addToCart, addToWishlist, removeFromWishlist } from "../../utility";
 
 const ProductCard = ({ productDetails }) => {
   const navigate = useNavigate();
@@ -24,7 +24,17 @@ const ProductCard = ({ productDetails }) => {
       <div className="card">
         <div className="card-image-container">
           <img className="image-responsive" src={Image} alt={alt} />
-          <i className="card-badge far fa-heart"></i>
+          {state.wishlist.find((product) => product._id === _id) ? (
+            <i
+              className="card-badge red-heart fas fa-heart"
+              onClick={() => removeFromWishlist(_id, dispatch)}
+            ></i>
+          ) : (
+            <i
+              className="card-badge far fa-heart"
+              onClick={() => addToWishlist(productDetails, dispatch)}
+            ></i>
+          )}
         </div>
         <div>
           <div className="card-text-container">
