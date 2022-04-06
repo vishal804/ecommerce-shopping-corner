@@ -1,3 +1,4 @@
+export { CategoryCard } from "./categoryCard/CategoryCard";
 export { PriceSummary } from "./priceSummary/PriceSummary";
 export { ProductCard } from "./card/ProductCard";
 export { Filter } from "./filter/Filter";
