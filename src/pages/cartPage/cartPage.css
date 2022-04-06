@@ -1,0 +1,14 @@
+.cart-section {
+  margin: 3rem 5rem;
+  padding: 0 5rem;
+}
+
+.cart-item-container {
+  flex: 0 0 70%;
+}
+
+.cart-heading {
+  padding: 2rem 0;
+  font-weight: 700;
+}
+

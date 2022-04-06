@@ -1,7 +1,11 @@
 import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
+import { useData } from "../../context/data-context";
+
 const Header = () => {
+  const { state } = useData();
+
   return (
     <>
       {/* Header Navigation */}
@@ -10,6 +14,14 @@ const Header = () => {
           <div className="left-navbar">
             <div className="logo">
               <Link to="/">Shoplify</Link>
+            </div>
+            <div className="flex quick-links">
+              <Link to="/">
+                <p className="quick-link">Home</p>
+              </Link>
+              <Link to="/product">
+                <p className="quick-link">products</p>
+              </Link>
             </div>
           </div>
           <div className="search-box">
@@ -30,7 +42,10 @@ const Header = () => {
             <li className="notification no-show">
               <Link to="/cart">
                 <i className="fas fa-shopping-cart fa-2x"></i>
-                <span className="badge">0</span>
+
+                {state.cart.length > 0 ? (
+                  <span className="badge">{state.cart.length}</span>
+                ) : null}
               </Link>
             </li>
           </ul>

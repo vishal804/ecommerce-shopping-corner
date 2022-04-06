@@ -1,8 +1,15 @@
 import React from "react";
+import { useData } from "../../context/data-context";
+import { useNavigate } from "react-router-dom";
 import "./productCard.css";
+import { addToCart } from "../../utility";
 
 const ProductCard = ({ productDetails }) => {
+  const navigate = useNavigate();
+  const { state, dispatch } = useData();
+
   const {
+    _id,
     brand,
     title,
     priceAfterDiscount,
@@ -32,7 +39,21 @@ const ProductCard = ({ productDetails }) => {
             </div>
           </div>
           <div className="card-btn-container">
-            <button className="btn btn-primary btn-lg">Add to Cart</button>
+            {state.cart.find((element) => element._id === _id) ? (
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate("/cart")}
+              >
+                Go to cart
+              </button>
+            ) : (
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={() => addToCart({ ...productDetails }, dispatch)}
+              >
+                Add to cart
+              </button>
+            )}
           </div>
         </div>
       </div>

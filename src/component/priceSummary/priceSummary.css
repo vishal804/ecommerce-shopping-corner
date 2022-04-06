@@ -1,0 +1,33 @@
+/* For Price Total Aside  */
+
+.cart-price-heading {
+  padding: 1rem 0.5rem;
+  font-weight: 700;
+}
+
+.price-breakout,
+.price-breakdown {
+  padding: 0.5rem;
+}
+
+.total-price {
+  font-weight: 700;
+  padding: 1rem 0.5rem;
+}
+
+/* For Quantity Counter */
+
+.quantity {
+  margin: 1rem 1rem 0 0;
+  font-weight: 700;
+}
+
+.counter {
+  border: 1px solid var(--text-color);
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.counter-item {
+  margin: 0.5rem;
+}

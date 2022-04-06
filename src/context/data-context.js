@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { createContext, useContext, useReducer } from "react";
 import { dataReducer, initialState } from "../reducer/dataReducer";
 import axios from "axios";
+import { filterData, sortData } from "../utility";
 
 const DataContext = createContext();
 
@@ -19,69 +20,8 @@ const DataProvider = ({ children }) => {
     })();
   }, []);
 
-  const sortData = (data) => {
-    if (state.filters.sortBy === "HIGH_TO_LOW") {
-      return [...data].sort(
-        (a, b) => b.priceAfterDiscount - a.priceAfterDiscount
-      );
-    }
-    if (state.filters.sortBy === "LOW_TO_HIGH") {
-      return [...data].sort(
-        (a, b) => a.priceAfterDiscount - b.priceAfterDiscount
-      );
-    }
-
-    return data;
-  };
-
-  const filterData = (data) => {
-    if (data) {
-      let filteredData = [...data];
-
-      if (state.filters.sortByBrand.length !== 0) {
-        filteredData = filteredData.filter((product) =>
-          state.filters.sortByBrand.includes(product.brand)
-        );
-      }
-
-      if (state.filters.sortByCategory.length !== 0) {
-        filteredData = filteredData.filter((product) =>
-          state.filters.sortByCategory.includes(product.category)
-        );
-      }
-
-      if (state.filters.sortByIdealFor.length !== 0) {
-        filteredData = filteredData.filter((product) =>
-          product.idealFor.some((element) =>
-            state.filters.sortByIdealFor.includes(element)
-          )
-        );
-      }
-
-      if (state.filters.sortBySize.length !== 0) {
-        filteredData = filteredData.filter((prod) =>
-          prod.sizeAvailable.some((ele) =>
-            state.filters.sortBySize.includes(ele)
-          )
-        );
-      }
-      if (state.filters.priceRange.length !== 0)
-        filteredData = filteredData.filter(
-          (product) => product.priceAfterDiscount <= state.filters.priceRange
-        );
-
-      if (state.filters.sortByRating !== null)
-        filteredData = filteredData.filter(
-          (product) => product.rating >= state.filters.sortByRating
-        );
-
-      return filteredData;
-    }
-    return [];
-  };
-
-  const sortedData = sortData(state.products);
-  const filteredData = filterData(sortedData);
+  const sortedData = sortData(state, state.products);
+  const filteredData = filterData(state, sortedData);
 
   return (
     <DataContext.Provider value={{ state, dispatch, filteredData }}>
