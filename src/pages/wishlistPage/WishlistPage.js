@@ -19,7 +19,6 @@ const WishlistPage = () => {
                 priceAfterDiscount,
                 originalPrice,
                 discount,
-
                 Image,
                 alt,
               } = product;
