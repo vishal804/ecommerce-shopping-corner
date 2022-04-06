@@ -5,10 +5,7 @@
   font-weight: 700;
 }
 
-.price-breakout {
-  padding: 0.5rem;
-}
-
+.price-breakout,
 .price-breakdown {
   padding: 0.5rem;
 }
