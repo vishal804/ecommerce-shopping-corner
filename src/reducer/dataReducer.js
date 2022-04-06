@@ -20,7 +20,7 @@ const dataReducer = (state, action) => {
         ...state,
         products: action.payload,
       };
-      case "SET_USER_CART":
+    case "SET_USER_CART":
       return {
         ...state,
         cart: action.payload,
