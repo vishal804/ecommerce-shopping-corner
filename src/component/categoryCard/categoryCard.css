@@ -21,7 +21,6 @@
 
 .shop-card .card-container {
   position: absolute;
-  z-index: 1;
   top: 0;
   padding: 3rem 0 2rem 2rem;
 }

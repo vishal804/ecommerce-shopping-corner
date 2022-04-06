@@ -11,7 +11,7 @@ const Filter = () => {
   const categories = [
     "Summer Collection",
     "Winter Collection",
-    "Mansoom Collection",
+    "Monsoon Collection",
   ];
 
   return (
