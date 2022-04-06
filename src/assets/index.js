@@ -14,3 +14,6 @@ export { default as tshirt } from "./productImage/tshirt.png";
 export { default as tshirt1 } from "./productImage/tshirt1.jpg";
 export { default as tshirtCombo } from "./productImage/tshirtCombo.jpg";
 export { default as headPhone } from "./productImage/headPhone.jpg";
+
+export { default as shopcategory } from "./images/shopcategory.jpg";
+export { default as collection } from "./images/collection.jpg";

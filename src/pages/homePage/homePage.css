@@ -1,0 +1,56 @@
+/* Home Page Styling */
+
+.banner {
+  background: url(../../assets/images/banner.jpg);
+  background-size: cover;
+  height: 29rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  object-fit: contain;
+}
+
+.banner-content {
+  margin: auto;
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+}
+
+.banner-subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 0 1rem 0;
+}
+
+/* Shop By Category */
+
+.wrapper-category-container,
+.category-container {
+  margin: 0 0 0 1rem;
+}
+
+.category-container-card {
+  display: flex;
+  flex: 1 1 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.category-container-card .img-responsive {
+  max-width: 43.75rem;
+  margin: 3rem auto;
+}
+
+.category-container-card .title {
+  position: absolute;
+  top: 18.75rem;
+  left: 12.5rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--secondary-text-color);
+}
+/* Shop By Category */
