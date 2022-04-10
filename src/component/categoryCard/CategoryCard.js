@@ -8,17 +8,17 @@ const CategoryCard = ({ value }) => {
   const { dispatch } = useData();
   return (
     <>
-      <div class="card">
+      <div className="card">
         <Link to="/product">
-          <img class="image-responsive" src={collection} alt="collection" />
+          <img className="image-responsive" src={collection} alt="collection" />
           <div
-            class="card-container"
+            className="card-container"
             onClick={() =>
               dispatch({ type: "SORT_BY_CATEGORY", payload: value })
             }
           >
-            <div class="card-text-container">
-              <h5 class="card-heading">{value}</h5>
+            <div className="card-text-container">
+              <h5 className="card-heading">{value}</h5>
             </div>
           </div>
         </Link>

@@ -1,12 +1,17 @@
 import React from "react";
-import { useData } from "../../context/data-context";
-import { useNavigate } from "react-router-dom";
-import "./productCard.css";
 import { addToCart, addToWishlist, removeFromWishlist } from "../../utility";
+import { useNavigate } from "react-router-dom";
+import { useData } from "../../context/data-context";
+import { useAuth } from "../../context/auth-context";
+import "./productCard.css";
 
 const ProductCard = ({ productDetails }) => {
   const navigate = useNavigate();
   const { state, dispatch } = useData();
+
+  const {
+    authState: { token },
+  } = useAuth();
 
   const {
     _id,
@@ -27,12 +32,14 @@ const ProductCard = ({ productDetails }) => {
           {state.wishlist.find((product) => product._id === _id) ? (
             <i
               className="card-badge red-heart fas fa-heart"
-              onClick={() => removeFromWishlist(_id, dispatch)}
+              onClick={() => removeFromWishlist(_id, dispatch, token)}
             ></i>
           ) : (
             <i
               className="card-badge far fa-heart"
-              onClick={() => addToWishlist(productDetails, dispatch)}
+              onClick={() =>
+                addToWishlist(productDetails, dispatch, token, navigate)
+              }
             ></i>
           )}
         </div>
@@ -59,7 +66,9 @@ const ProductCard = ({ productDetails }) => {
             ) : (
               <button
                 className="btn btn-primary btn-lg"
-                onClick={() => addToCart({ ...productDetails }, dispatch)}
+                onClick={() =>
+                  addToCart({ ...productDetails }, dispatch, token, navigate)
+                }
               >
                 Add to cart
               </button>

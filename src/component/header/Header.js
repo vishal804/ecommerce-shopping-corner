@@ -1,10 +1,28 @@
 import React from "react";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useData } from "../../context/data-context";
+import { useAuth } from "../../context/auth-context";
 
 const Header = () => {
   const { state } = useData();
+  const { authState, authDispatch } = useAuth();
+
+  const navigate = useNavigate();
+  
+
+  const logoutHandler = () => {
+    navigate("/");
+    localStorage.removeItem("userAuthToken");
+    localStorage.removeItem("user");
+    authDispatch({ type: "LOGOUT" });
+  };
+
+  const loginBttonHandler = () => {
+    if (authState.token) {
+      logoutHandler();
+    }
+  };
 
   return (
     <>
@@ -30,15 +48,20 @@ const Header = () => {
           </div>
           <ul className="right-navbar">
             <li className="no-show">
-              <button className="btn btn-link btn-style">
-                <Link to="/">Login</Link>
-              </button>
+              <Link to="/signin">
+                <button
+                  className="btn btn-link btn-style"
+                  onClick={loginBttonHandler}
+                >
+                  {authState.token ? "Logout" : "Login"}
+                </button>
+              </Link>
             </li>
 
             <li className="notification no-show">
               <Link to="/wishlist">
                 <i className="fa-2x far fa-heart"></i>
-                {state.wishlist.length > 0 ? (
+                {authState.user && state.wishlist.length > 0 ? (
                   <span className="badge">{state.wishlist.length}</span>
                 ) : null}
               </Link>
@@ -47,7 +70,7 @@ const Header = () => {
               <Link to="/cart">
                 <i className="fas fa-shopping-cart fa-2x"></i>
 
-                {state.cart.length > 0 ? (
+                {authState.user && state.cart.length > 0 ? (
                   <span className="badge">{state.cart.length}</span>
                 ) : null}
               </Link>
