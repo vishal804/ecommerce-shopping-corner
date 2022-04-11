@@ -37,7 +37,7 @@ const HomePage = () => {
 
         <div className="shop-card card-style flex flex-space-between">
           {categories.length !== 0 &&
-            categories.map((category) => <CategoryCard value={category} />)}
+            categories.map((category,index) => <CategoryCard key={index} value={category} />)}
         </div>
       </section>
 

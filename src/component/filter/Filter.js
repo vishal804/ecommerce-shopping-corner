@@ -54,7 +54,7 @@ const Filter = () => {
 
       <div className="list-heading flex flex-coloum">
         <h4>Sort by</h4>
-        <label htmlfor="radio">
+        <label htmlFor="radio">
           <input
             id="radio"
             type="radio"
@@ -66,7 +66,7 @@ const Filter = () => {
           ></input>
           Price - Low to High
         </label>
-        <label htmlfor="radio">
+        <label htmlFor="radio">
           <input
             id="radio"
             type="radio"

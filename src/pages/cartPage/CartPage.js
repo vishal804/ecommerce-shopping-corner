@@ -2,11 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useData } from "../../context/data-context";
 import "./cartPage.css";
-import { removeFromCart, updateQuantity } from "../../utility";
+import { addToWishlist, removeFromCart, updateQuantity } from "../../utility";
 import { PriceSummary } from "../../component";
+import { useAuth } from "../../context/auth-context";
 
 const CartPage = () => {
   const { state, dispatch } = useData();
+  const {
+    authState: { token },
+  } = useAuth();
 
   return (
     <>
@@ -48,7 +52,12 @@ const CartPage = () => {
                               <i
                                 className="fas fa-minus"
                                 onClick={() =>
-                                  updateQuantity(_id, dispatch, "decrement")
+                                  updateQuantity(
+                                    _id,
+                                    dispatch,
+                                    "decrement",
+                                    token
+                                  )
                                 }
                               ></i>
                             </span>
@@ -57,7 +66,12 @@ const CartPage = () => {
                               <i
                                 className="fas fa-plus"
                                 onClick={() =>
-                                  updateQuantity(_id, dispatch, "increment")
+                                  updateQuantity(
+                                    _id,
+                                    dispatch,
+                                    "increment",
+                                    token
+                                  )
                                 }
                               ></i>
                             </span>
@@ -68,11 +82,18 @@ const CartPage = () => {
                       <div className="card-btn-container">
                         <button
                           className="btn btn-secondary btn-lg"
-                          onClick={() => removeFromCart(_id, dispatch)}
+                          onClick={() => removeFromCart(_id, dispatch, token)}
                         >
                           Remove From Cart
                         </button>
-                        <button className="btn btn-lg">Move to Wishlist</button>
+                        <button
+                          className="btn btn-lg"
+                          onClick={() =>
+                            addToWishlist(product, dispatch, token)
+                          }
+                        >
+                          Move to Wishlist
+                        </button>
                       </div>
                     </div>
                   </div>
