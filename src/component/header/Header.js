@@ -9,7 +9,6 @@ const Header = () => {
   const { authState, authDispatch } = useAuth();
 
   const navigate = useNavigate();
-  
 
   const logoutHandler = () => {
     navigate("/");
@@ -48,14 +47,25 @@ const Header = () => {
           </div>
           <ul className="right-navbar">
             <li className="no-show">
-              <Link to="/signin">
-                <button
-                  className="btn btn-link btn-style"
-                  onClick={loginHandler}
-                >
-                  {authState.token ? "Logout" : "Login"}
-                </button>
-              </Link>
+              {authState.token ? (
+                <Link to="/">
+                  <button
+                    className="btn btn-link btn-style"
+                    onClick={loginHandler}
+                  >
+                    Logout
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/signin">
+                  <button
+                    className="btn btn-link btn-style"
+                    onClick={loginHandler}
+                  >
+                    Login
+                  </button>
+                </Link>
+              )}
             </li>
 
             <li className="notification no-show">
