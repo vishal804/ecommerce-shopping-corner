@@ -4,11 +4,11 @@ import { useAuth } from "./context/auth-context";
 const PrivateRoutes = () => {
   const { authState } = useAuth();
   const location = useLocation();
-  if (authState.user) {
-    return <Outlet />;
-  } else {
-    return <Navigate to="/signin" state={{ from: location }} replace />;
-  }
+  return authState.user ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/signin" state={{ from: location }} replace />
+  );
 };
 
 export { PrivateRoutes };

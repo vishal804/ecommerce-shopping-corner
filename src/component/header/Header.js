@@ -18,7 +18,7 @@ const Header = () => {
     authDispatch({ type: "LOGOUT" });
   };
 
-  const loginBttonHandler = () => {
+  const loginHandler = () => {
     if (authState.token) {
       logoutHandler();
     }
@@ -51,7 +51,7 @@ const Header = () => {
               <Link to="/signin">
                 <button
                   className="btn btn-link btn-style"
-                  onClick={loginBttonHandler}
+                  onClick={loginHandler}
                 >
                   {authState.token ? "Logout" : "Login"}
                 </button>
