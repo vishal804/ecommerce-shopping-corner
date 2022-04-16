@@ -5,7 +5,7 @@ import { useAuth } from "../../context/auth-context";
 import "./auth.css";
 
 const Signup = () => {
-  const [error, setError] = useState("Nothing");
+  const [error, setError] = useState("");
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
