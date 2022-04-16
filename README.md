@@ -1,6 +1,6 @@
 # Shoplify
 
-[Sholify](https://shopping-corner.netlify.app/) is an Ecommerce Web Application for Shopping
+[Sholify](https://shopping-corner-shop.netlify.app/) is an Ecommerce Web Application for Shopping
 Using React
 
 ## Features
