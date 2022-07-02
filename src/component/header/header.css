@@ -44,3 +44,20 @@ input {
   margin: 0 1rem 0 0;
   cursor: pointer;
 }
+
+.right-navbar .show {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .right-navbar .show {
+    display: block;
+  }
+
+  .no-show {
+    display: none;
+  }
+  .left-navbar {
+    margin: 0 0 0 1.5rem;
+  }
+}

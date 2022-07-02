@@ -1,22 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useData } from "../../context/data-context";
 import "./cartPage.css";
-import { addToWishlist, removeFromCart, updateQuantity } from "../../utility";
 import { PriceSummary } from "../../component";
+import { Link, useNavigate } from "react-router-dom";
+import { useData } from "../../context/data-context";
 import { useAuth } from "../../context/auth-context";
+import { addToWishlist, removeFromCart, updateQuantity } from "../../utility";
 
 const CartPage = () => {
   const { state, dispatch } = useData();
   const {
     authState: { token },
   } = useAuth();
-
+  const navigate = useNavigate();
   return (
     <>
       {state.cart && state.cart.length > 0 ? (
         <section className="cart-section">
-          <div className="cart-container flex">
+          <div className="flex flex-wrap">
             <div className="cart-item-container card-horizontal-style">
               <h2 className="cart-heading">
                 My Cart (<span>{state.cart.length}</span>)
@@ -86,14 +86,25 @@ const CartPage = () => {
                         >
                           Remove From Cart
                         </button>
-                        <button
-                          className="btn btn-lg"
-                          onClick={() =>
-                            addToWishlist(product, dispatch, token)
-                          }
-                        >
-                          Move to Wishlist
-                        </button>
+                        {state.wishlist.find(
+                          (product) => product._id === _id
+                        ) ? (
+                          <button
+                            className="btn btn-lg"
+                            onClick={() => navigate(`/wishlist`)}
+                          >
+                            Go to Wishlist
+                          </button>
+                        ) : (
+                          <button
+                            className="btn btn-lg"
+                            onClick={() =>
+                              addToWishlist(product, dispatch, token)
+                            }
+                          >
+                            Move to Wishlist
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -1,9 +1,9 @@
 import React from "react";
-import { addToCart, addToWishlist, removeFromWishlist } from "../../utility";
+import "./productCard.css";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../../context/data-context";
 import { useAuth } from "../../context/auth-context";
-import "./productCard.css";
+import { addToCart, addToWishlist, removeFromWishlist } from "../../utility";
 
 const ProductCard = ({ productDetails }) => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./footer.css";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-coloum flex-grow-1">
+        <div className="flex flex-coloum flex-grow-1 no-show">
           <div className="item-title">Quick Links</div>
           <ul className="quick-links">
             <li>
@@ -36,7 +36,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-coloum flex-grow-1">
+        <div className="flex flex-coloum flex-grow-1 no-show">
           <div className="item-title">Contact Info</div>
           <ul className="quick-links">
             <li>

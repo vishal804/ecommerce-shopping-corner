@@ -21,3 +21,17 @@
 .card-btn-container {
   padding: 1rem;
 }
+
+.width-250 {
+  width: 15rem;
+}
+
+.width-0 {
+  width: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .aside {
+    background-color: var(--background-color);
+  }
+}
