@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       {/* Header Navigation */}
-      <header>
+      <header className="navigationbar">
         <nav className="navbar box-shadow">
           <div className="left-navbar">
             <div>
