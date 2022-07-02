@@ -1,14 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { useData } from "../../context/data-context";
 import { addToCart, removeFromWishlist } from "../../utility";
 
 const WishlistPage = () => {
   const { state, dispatch } = useData();
-
   const {
     authState: { token },
   } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -52,14 +53,23 @@ const WishlistPage = () => {
                         Remove
                       </button>
 
-                      <button
-                        className="btn btn-lg"
-                        onClick={() =>
-                          addToCart({ ...product }, dispatch, token)
-                        }
-                      >
-                        Move to Cart
-                      </button>
+                      {state.cart.find((element) => element._id === _id) ? (
+                        <button
+                          className="btn btn-lg"
+                          onClick={() => navigate("/cart")}
+                        >
+                          Go to cart
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-lg"
+                          onClick={() =>
+                            addToCart({ ...product }, dispatch, token)
+                          }
+                        >
+                          Move to Cart
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

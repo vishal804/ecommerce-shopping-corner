@@ -47,7 +47,7 @@ const HomePage = () => {
           <div className="category-container-card">
             <Link to="/product">
               <img
-                className="img-responsive"
+                className="category-img-responsive"
                 src={shopcategory}
                 alt="shopcategory"
                 onClick={() =>
@@ -61,7 +61,7 @@ const HomePage = () => {
           <div className="category-container-card">
             <Link to="/product">
               <img
-                className="img-responsive"
+                className="category-img-responsive"
                 src={shopcategory}
                 alt="shopcategory"
                 onClick={() =>

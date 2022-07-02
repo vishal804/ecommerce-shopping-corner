@@ -29,7 +29,7 @@ const Header = () => {
       <header>
         <nav className="navbar box-shadow">
           <div className="left-navbar">
-            <div className="logo">
+            <div>
               <Link to="/">Shoplify</Link>
             </div>
             <div className="flex quick-links">
@@ -41,29 +41,35 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          <div className="search-box">
+          <div className="search-box no-show">
             <i className="fas fa-search"></i>
             <input className="search" placeholder="Search" />
           </div>
           <ul className="right-navbar">
-            <li className="no-show">
+            <li>
               {authState.token ? (
                 <Link to="/">
                   <button
-                    className="btn btn-link btn-style"
+                    className="no-show btn btn-link btn-style"
                     onClick={loginHandler}
                   >
                     Logout
                   </button>
+                  <p onClick={loginHandler}>
+                    <i className="show fas fa-sign-out-alt fa-2x"></i>
+                  </p>
                 </Link>
               ) : (
                 <Link to="/signin">
                   <button
-                    className="btn btn-link btn-style"
+                    className="no-show btn btn-link btn-style"
                     onClick={loginHandler}
                   >
                     Login
                   </button>
+                  <p onClick={loginHandler}>
+                    <i className="show fas fa-sign-in-alt fa-2x"></i>
+                  </p>
                 </Link>
               )}
             </li>

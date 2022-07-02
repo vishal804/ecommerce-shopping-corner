@@ -1,7 +1,7 @@
 import React from "react";
 import { useData } from "../../context/data-context";
 
-const Filter = () => {
+const Filter = ({ shownav, setShownav }) => {
   const { state, dispatch } = useData();
 
   const brands = ["AmorMente", "Nike", "Reebok", "TRIPR"];
@@ -17,6 +17,11 @@ const Filter = () => {
   return (
     <>
       <div className="list-heading flex flex-space-between">
+        <div className="show">
+          <p className="closebtn" onClick={() => setShownav(!shownav)}>
+            <i className="fas fa-times"></i>
+          </p>
+        </div>
         <h3>Filters</h3>
 
         <p
