@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/auth-context";
-import axios from "axios";
 import "./auth.css";
+import axios from "axios";
+import { useAuth } from "../../context/auth-context";
+import { Link, useNavigate } from "react-router-dom";
+import { ErrorToast, SuccessToast } from "../../component";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -27,8 +28,9 @@ const Signin = () => {
         },
       });
       navigate("/");
+      SuccessToast("Login successful");
     } catch (error) {
-      console.log("Error", error);
+      ErrorToast("Invalid username and password", error);
     }
   };
 
@@ -48,8 +50,9 @@ const Signin = () => {
         },
       });
       navigate("/");
+      SuccessToast("Login successful");
     } catch (error) {
-      console.log("Error", error);
+      ErrorToast("Invalid username and password", error);
     }
   };
 

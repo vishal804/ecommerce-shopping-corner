@@ -1,5 +1,6 @@
 import "./App.css";
 import { Header } from "./component";
+import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import { PrivateRoutes } from "./PrivateRoute";
 import {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
+      <ToastContainer />
     </>
   );
 }
