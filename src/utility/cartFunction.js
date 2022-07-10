@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ErrorToast, InfoToast } from "../component";
 
 export const addToCart = async (product, dispatch, token, navigate) => {
   if (token) {
@@ -12,8 +13,9 @@ export const addToCart = async (product, dispatch, token, navigate) => {
       );
 
       dispatch({ type: "SET_USER_CART", payload: response.data.cart });
-    } catch (err) {
-      console.log(err);
+      InfoToast("Product added to cart");
+    } catch (error) {
+      ErrorToast("seems to be error", error);
     }
   } else {
     navigate("/signin");
@@ -27,8 +29,9 @@ export const removeFromCart = async (id, dispatch, token) => {
     });
 
     dispatch({ type: "SET_USER_CART", payload: response.data.cart });
-  } catch (err) {
-    console.log(err);
+    InfoToast("Product removed from cart");
+  } catch (error) {
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -46,8 +49,8 @@ export const updateQuantity = async (id, dispatch, updateType, token) => {
       }
     );
     dispatch({ type: "SET_USER_CART", payload: response.data.cart });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -62,8 +65,9 @@ export const addToWishlist = async (product, dispatch, token, navigate) => {
         }
       );
       dispatch({ type: "SET_USER_WISHLIST", payload: response.data.wishlist });
-    } catch (err) {
-      console.log(err);
+      InfoToast("Product added to wishlist");
+    } catch (error) {
+      ErrorToast("seems to be error", error);
     }
   } else {
     navigate("/signin");
@@ -76,7 +80,8 @@ export const removeFromWishlist = async (id, dispatch, token) => {
       headers: { authorization: token },
     });
     dispatch({ type: "SET_USER_WISHLIST", payload: response.data.wishlist });
-  } catch (err) {
-    console.log(err);
+    InfoToast("Product removed from wishlist");
+  } catch (error) {
+    ErrorToast("seems to be error", error);
   }
 };
