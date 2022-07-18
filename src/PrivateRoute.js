@@ -7,7 +7,7 @@ const PrivateRoutes = () => {
   return authState.user ? (
     <Outlet />
   ) : (
-    <Navigate to="/signin" state={{ from: location }} replace />
+    <Navigate to="/signin" state={{ from: location.pathname }} replace />
   );
 };
 

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./auth.css";
 import axios from "axios";
 import { useAuth } from "../../context/auth-context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ErrorToast, SuccessToast } from "../../component";
 
 const Signin = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { authDispatch } = useAuth();
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -27,7 +28,11 @@ const Signin = () => {
           token: response.data.encodedToken,
         },
       });
-      navigate("/");
+      if (location?.state?.from) {
+        navigate(`${location.state.from}`);
+      } else {
+        navigate("/");
+      }
       SuccessToast("Login successful");
     } catch (error) {
       ErrorToast("Invalid username and password", error);
@@ -49,7 +54,11 @@ const Signin = () => {
           token: response.data.encodedToken,
         },
       });
-      navigate("/");
+      if (location?.state?.from) {
+        navigate(`${location.state.from}`);
+      } else {
+        navigate("/");
+      }
       SuccessToast("Login successful");
     } catch (error) {
       ErrorToast("Invalid username and password", error);

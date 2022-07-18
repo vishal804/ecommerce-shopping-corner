@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./auth.css";
 import axios from "axios";
 import { useAuth } from "../../context/auth-context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ErrorToast, SuccessToast } from "../../component";
 
 const Signup = () => {
@@ -16,6 +16,7 @@ const Signup = () => {
 
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -42,7 +43,11 @@ const Signup = () => {
               token: response.data.encodedToken,
             },
           });
-          navigate("/");
+          if (location?.state?.from) {
+            navigate(`${location.state.from}`);
+          } else {
+            navigate("/");
+          }
           SuccessToast("Login successful");
         }
       } catch (error) {
