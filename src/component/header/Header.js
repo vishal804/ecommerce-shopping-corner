@@ -7,14 +7,12 @@ import { useAuth } from "../../context/auth-context";
 const Header = () => {
   const { state } = useData();
   const { authState, authDispatch } = useAuth();
-
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    navigate("/");
-    localStorage.removeItem("userAuthToken");
-    localStorage.removeItem("user");
     authDispatch({ type: "LOGOUT" });
+    localStorage.clear();
+    navigate("/");
   };
 
   const loginHandler = () => {

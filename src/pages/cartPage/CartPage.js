@@ -31,6 +31,7 @@ const CartPage = () => {
                   discount,
                   Image,
                   alt,
+                  qty,
                 } = product;
                 return (
                   <div className="card card-Horizontal" key={_id}>
@@ -56,7 +57,8 @@ const CartPage = () => {
                                     _id,
                                     dispatch,
                                     "decrement",
-                                    token
+                                    token,
+                                    qty
                                   )
                                 }
                               ></i>
@@ -70,7 +72,8 @@ const CartPage = () => {
                                     _id,
                                     dispatch,
                                     "increment",
-                                    token
+                                    token,
+                                    qty
                                   )
                                 }
                               ></i>

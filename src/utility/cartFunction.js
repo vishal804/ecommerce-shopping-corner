@@ -1,7 +1,13 @@
 import axios from "axios";
 import { ErrorToast, InfoToast } from "../component";
 
-export const addToCart = async (product, dispatch, token, navigate) => {
+export const addToCart = async (
+  product,
+  dispatch,
+  token,
+  navigate,
+  location
+) => {
   if (token) {
     try {
       const response = await axios.post(
@@ -18,7 +24,7 @@ export const addToCart = async (product, dispatch, token, navigate) => {
       ErrorToast("seems to be error", error);
     }
   } else {
-    navigate("/signin");
+    navigate("/signin", { state: { from: location.pathname } });
   }
 };
 
@@ -35,26 +41,43 @@ export const removeFromCart = async (id, dispatch, token) => {
   }
 };
 
-export const updateQuantity = async (id, dispatch, updateType, token) => {
-  try {
-    const response = await axios.post(
-      `/api/user/cart/${id}`,
-      {
-        action: {
-          type: updateType,
-        },
+export const updateProductQuantity = (id, updateType, token) => {
+  return axios.post(
+    `/api/user/cart/${id}`,
+    {
+      action: {
+        type: updateType,
       },
-      {
-        headers: { authorization: token },
-      }
-    );
-    dispatch({ type: "SET_USER_CART", payload: response.data.cart });
+    },
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+export const updateQuantity = async (id, dispatch, updateType, token, qty) => {
+  try {
+    if (updateType === "increment") {
+      const response = await updateProductQuantity(id, updateType, token);
+      dispatch({ type: "SET_USER_CART", payload: response.data.cart });
+    } else if (updateType === "decrement" && qty - 1 !== 0) {
+      const response = await updateProductQuantity(id, updateType, token);
+      dispatch({ type: "SET_USER_CART", payload: response.data.cart });
+    } else {
+      removeFromCart(id, dispatch, token);
+    }
   } catch (error) {
     ErrorToast("seems to be error", error);
   }
 };
 
-export const addToWishlist = async (product, dispatch, token, navigate) => {
+export const addToWishlist = async (
+  product,
+  dispatch,
+  token,
+  navigate,
+  location
+) => {
   if (token) {
     try {
       const response = await axios.post(
@@ -70,7 +93,7 @@ export const addToWishlist = async (product, dispatch, token, navigate) => {
       ErrorToast("seems to be error", error);
     }
   } else {
-    navigate("/signin");
+    navigate("/signin", { state: { from: location.pathname } });
   }
 };
 

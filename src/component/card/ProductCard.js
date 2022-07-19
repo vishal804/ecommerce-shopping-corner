@@ -1,12 +1,13 @@
 import React from "react";
 import "./productCard.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useData } from "../../context/data-context";
 import { useAuth } from "../../context/auth-context";
 import { addToCart, addToWishlist, removeFromWishlist } from "../../utility";
 
 const ProductCard = ({ productDetails }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { state, dispatch } = useData();
 
   const {
@@ -38,7 +39,7 @@ const ProductCard = ({ productDetails }) => {
             <i
               className="card-badge far fa-heart"
               onClick={() =>
-                addToWishlist(productDetails, dispatch, token, navigate)
+                addToWishlist(productDetails, dispatch, token, navigate,location)
               }
             ></i>
           )}
@@ -67,7 +68,13 @@ const ProductCard = ({ productDetails }) => {
               <button
                 className="btn btn-primary btn-lg"
                 onClick={() =>
-                  addToCart({ ...productDetails }, dispatch, token, navigate)
+                  addToCart(
+                    { ...productDetails },
+                    dispatch,
+                    token,
+                    navigate,
+                    location
+                  )
                 }
               >
                 Add to cart
