@@ -41,20 +41,27 @@ export const removeFromCart = async (id, dispatch, token) => {
   }
 };
 
+export const updateProductQuantity = (id, updateType, token) => {
+  return axios.post(
+    `/api/user/cart/${id}`,
+    {
+      action: {
+        type: updateType,
+      },
+    },
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
 export const updateQuantity = async (id, dispatch, updateType, token, qty) => {
   try {
-    if (qty >= 1) {
-      const response = await axios.post(
-        `/api/user/cart/${id}`,
-        {
-          action: {
-            type: updateType,
-          },
-        },
-        {
-          headers: { authorization: token },
-        }
-      );
+    if (updateType === "increment") {
+      const response = await updateProductQuantity(id, updateType, token);
+      dispatch({ type: "SET_USER_CART", payload: response.data.cart });
+    } else if (updateType === "decrement" && qty - 1 !== 0) {
+      const response = await updateProductQuantity(id, updateType, token);
       dispatch({ type: "SET_USER_CART", payload: response.data.cart });
     } else {
       removeFromCart(id, dispatch, token);
