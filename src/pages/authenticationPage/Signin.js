@@ -72,6 +72,7 @@ const Signin = () => {
           initialValues={{
             email: "",
             password: "",
+            acceptTerms: false,
           }}
           validate={(values) => {
             const errors = {};
@@ -84,6 +85,9 @@ const Signin = () => {
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
             ) {
               errors.email = "Invalid email address";
+            }
+            if (values.acceptTerms === false) {
+              errors.acceptTerms = "Accept Terms & Conditions is required";
             }
             return errors;
           }}
@@ -136,8 +140,14 @@ const Signin = () => {
             </div>
 
             <div className="login-store flex flex-space-between">
-              <label htmlFor="store">
-                <input type="checkbox" />I accept all terms & conditions
+              <label htmlFor="acceptTerms">
+                <Field type="checkbox" name="acceptTerms" id="acceptTerms" />I
+                accept all terms & conditions
+                <ErrorMessage
+                  className="error-message"
+                  name="acceptTerms"
+                  component="div"
+                />
               </label>
             </div>
 
