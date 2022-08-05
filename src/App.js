@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { PrivateRoutes } from "./PrivateRoute";
 import {
   CartPage,
+  CheckoutPage,
   HomePage,
   ProductPage,
   Signin,
@@ -23,6 +24,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path="/cart" element={<CartPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Route>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />

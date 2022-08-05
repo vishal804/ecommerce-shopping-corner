@@ -1,0 +1,45 @@
+.address-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.address-modal-container {
+  margin: 7rem auto;
+  width: 51%;
+  text-align: center;
+  background-color: var(--background-color);
+}
+
+.close-btn {
+  text-align: end;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.form-address {
+  padding: 1rem 0;
+  margin: 1rem;
+  height: max-content;
+}
+
+.input-field {
+  margin: 1rem auto;
+  width: 71%;
+}
+
+.mangement .btn-lg {
+  width: 71%;
+}
+
+@media only screen and (max-width: 768px) {
+  .address-modal-container {
+    width: 91%;
+  }
+}

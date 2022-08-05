@@ -11,6 +11,11 @@ const initialState = {
     sortBySize: [],
     sortByIdealFor: [],
   },
+  addresses: {
+    address: [],
+    selectedAddress: {},
+    showAddressModal: false,
+  },
 };
 
 const dataReducer = (state, action) => {
@@ -158,6 +163,23 @@ const dataReducer = (state, action) => {
               sortBySize: state.filters.sortBySize.concat(action.payload),
             },
           };
+
+    case "SET_ADDRESS":
+      return {
+        ...state,
+        addresses: { ...state.addresses, address: action.payload },
+      };
+    case "SET_SELECTED_ADDRESS":
+      return {
+        ...state,
+        addresses: { ...state.addresses, selectedAddress: action.payload },
+      };
+
+    case "SHOW_ADDRESS_MODAL":
+      return {
+        ...state,
+        addresses: { ...state.addresses, showAddressModal: action.payload },
+      };
 
     default:
       return state;
