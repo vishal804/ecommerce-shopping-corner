@@ -1,4 +1,5 @@
 import React from "react";
+import "./filter.css";
 import { useData } from "../../context/data-context";
 
 const Filter = ({ shownav, setShownav }) => {
@@ -55,6 +56,11 @@ const Filter = ({ shownav, setShownav }) => {
             })
           }
         />
+        <div className="slider-label">
+          <label>1000</label>
+          <label>to</label>
+          <label>{state.filters.priceRange}</label>
+        </div>
       </div>
 
       <div className="list-heading flex flex-coloum">
@@ -62,6 +68,7 @@ const Filter = ({ shownav, setShownav }) => {
         <label htmlFor="radio">
           <input
             id="radio"
+            className="input-option"
             type="radio"
             name="sort-by"
             checked={state.filters.sortBy === "LOW_TO_HIGH"}
@@ -74,6 +81,7 @@ const Filter = ({ shownav, setShownav }) => {
         <label htmlFor="radio">
           <input
             id="radio"
+            className="input-option"
             type="radio"
             name="sort-by"
             checked={state.filters.sortBy === "HIGH_TO_LOW"}
@@ -89,10 +97,11 @@ const Filter = ({ shownav, setShownav }) => {
         <h4>Brands</h4>
         {brands.map((brand) => {
           return (
-            <div key={brand}>
+            <div className="filter-option" key={brand}>
               <input
                 type="checkbox"
                 id="brand"
+                className="input-option"
                 checked={state.filters.sortByBrand.includes(brand)}
                 onChange={() =>
                   dispatch({ type: "SORT_BY_BRAND", payload: brand })
@@ -108,10 +117,11 @@ const Filter = ({ shownav, setShownav }) => {
         <h4>Categories</h4>
         {categories.map((category) => {
           return (
-            <div key={category}>
+            <div className="filter-option" key={category}>
               <input
                 type="checkbox"
                 id="category"
+                className="input-option"
                 checked={state.filters.sortByCategory.includes(category)}
                 onChange={() =>
                   dispatch({ type: "SORT_BY_CATEGORY", payload: category })
@@ -127,11 +137,12 @@ const Filter = ({ shownav, setShownav }) => {
         <h4>Rating</h4>
         {ratingStar.map((rating) => {
           return (
-            <div key={rating}>
+            <div className="filter-option" key={rating}>
               <label htmlFor="rating">
                 <input
                   type="radio"
                   id="rating"
+                  className="input-option"
                   name="radio"
                   checked={state.filters.sortByRating === rating}
                   onChange={() =>
@@ -148,10 +159,11 @@ const Filter = ({ shownav, setShownav }) => {
         <h4>Ideal For</h4>
         {idealFor.map((idealFor) => {
           return (
-            <div key={idealFor}>
+            <div className="filter-option" key={idealFor}>
               <input
                 type="checkbox"
                 id="idealFor"
+                className="input-option"
                 checked={state.filters.sortByIdealFor.includes(idealFor)}
                 onChange={() =>
                   dispatch({ type: "SORT_BY_IDEALFOR", payload: idealFor })
@@ -167,10 +179,11 @@ const Filter = ({ shownav, setShownav }) => {
         <h4>Sizes</h4>
         {sizeAvailable.map((sizeAvailable) => {
           return (
-            <div key={sizeAvailable}>
+            <div className="filter-option" key={sizeAvailable}>
               <input
                 type="checkbox"
                 id="sizeAvailable"
+                className="input-option"
                 checked={state.filters.sortBySize.includes(sizeAvailable)}
                 onChange={() =>
                   dispatch({ type: "SORT_BY_SIZE", payload: sizeAvailable })

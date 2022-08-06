@@ -124,6 +124,16 @@ const dataReducer = (state, action) => {
               ),
             },
           };
+
+    case "SORT_BY_CATEGORY_REMOVE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortByCategory: [],
+        },
+      };
+
     case "SORT_BY_IDEALFOR":
       return state.filters.sortByIdealFor.includes(action.payload)
         ? {
@@ -144,6 +154,15 @@ const dataReducer = (state, action) => {
               ),
             },
           };
+
+    case "SORT_BY_IDEALFOR_REMOVE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortByIdealFor: [],
+        },
+      };
 
     case "SORT_BY_SIZE":
       return state.filters.sortBySize.includes(action.payload)

@@ -7,11 +7,12 @@
   gap: 1.5rem;
   background-color: var(--bg-color);
   font-size: 0.9rem;
-  padding: 3rem;
+  padding: 3rem 5rem;
 }
 
 .footer .brand {
   line-height: 3.3rem;
+  flex-basis: 61rem;
 }
 
 .footer .logo {
@@ -50,9 +51,18 @@
 .footer .quick-links {
   margin: 1rem 0 0 0;
 }
+
 @media only screen and (max-width: 768px) {
   .footer .logo {
     margin: 0;
+  }
+
+  .footer {
+    padding: 1rem 5rem;
+    text-align: center;
+  }
+  .links-handle {
+    justify-content: space-between;
   }
 }
 /* Footer */

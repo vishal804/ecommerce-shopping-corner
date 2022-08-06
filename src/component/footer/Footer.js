@@ -5,38 +5,40 @@ const Footer = () => {
   return (
     <>
       <footer className="footer flex">
-        <div className="flex flex-coloum flex-grow-1 brand">
+        <div className="flex flex-coloum brand">
           <div className="logo">
             <Link to="/">Shoplify</Link>
           </div>
           <p>You Shop Fast We Ship Faster</p>
           <div className="links-handle flex">
-            <i className="fab fa-facebook fa-2x"></i>
-            <i className="fab fa-instagram fa-2x"></i>
-            <i className="fab fa-twitter fa-2x"></i>
-            <i className="fab fa-snapchat fa-2x"></i>
+            <a
+              href="https://www.facebook.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i className="fab fa-facebook fa-2x"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i className="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://twitter.com/" rel="noreferrer" target="_blank">
+              <i className="fab fa-twitter fa-2x"></i>
+            </a>
+            <a
+              href="https://accounts.snapchat.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i className="fab fa-snapchat fa-2x"></i>
+            </a>
           </div>
         </div>
 
-        <div className="flex flex-coloum flex-grow-1 no-show">
-          <div className="item-title">Quick Links</div>
-          <ul className="quick-links">
-            <li>
-              <Link to="/">Account</Link>
-            </li>
-            <li>
-              <Link to="/">Cart</Link>
-            </li>
-            <li>
-              <Link to="/">Orders</Link>
-            </li>
-            <li>
-              <Link to="/">Track Orders</Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="flex flex-coloum flex-grow-1 no-show">
+        <div className="flex flex-coloum no-show">
           <div className="item-title">Contact Info</div>
           <ul className="quick-links">
             <li>

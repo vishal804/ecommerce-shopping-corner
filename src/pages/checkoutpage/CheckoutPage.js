@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import "./checkoutPage.css";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
 import { useData } from "../../context/data-context";
 import { getAddress } from "../../utility/addressFunction";
 import { PriceSummary, AddressModal, AddressCard } from "../../component";
 
 const CheckoutPage = () => {
+  const navigate = useNavigate();
   const {
     authState: { token },
   } = useAuth();
@@ -17,6 +19,12 @@ const CheckoutPage = () => {
       addresses: { address, selectedAddress, showAddressModal },
     },
   } = useData();
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate("/product");
+    }
+  }, [cart, navigate]);
 
   useEffect(() => {
     getAddress(dispatch, token);
