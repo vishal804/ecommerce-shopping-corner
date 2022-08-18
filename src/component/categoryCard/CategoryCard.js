@@ -16,7 +16,10 @@ const CategoryCard = ({ value }) => {
         />
         <div
           className="card-container"
-          onClick={() => dispatch({ type: "SORT_BY_CATEGORY", payload: value })}
+          onClick={() => {
+            dispatch({ type: "SORT_BY_CATEGORY_REMOVE" });
+            dispatch({ type: "SORT_BY_CATEGORY", payload: value });
+          }}
         >
           <div className="card-text-container centered">
             <h5 className="card-heading">{value}</h5>

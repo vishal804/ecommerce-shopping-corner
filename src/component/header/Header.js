@@ -39,10 +39,6 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          <div className="search-box no-show">
-            <i className="fas fa-search"></i>
-            <input className="search" placeholder="Search" />
-          </div>
           <ul className="right-navbar">
             <li>
               {authState.token ? (

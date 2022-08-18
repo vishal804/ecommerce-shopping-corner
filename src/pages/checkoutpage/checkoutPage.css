@@ -1,0 +1,33 @@
+.checkout-section {
+  margin: 1rem 5rem;
+  padding: 0 5rem;
+}
+
+.address-section {
+  flex: 0 0 71%;
+}
+
+.address-section .cart-heading {
+  font-size: 1.5rem;
+}
+.cart-title {
+  border-bottom: 1px solid var(--line-styling-color);
+  padding: 1rem 0;
+  font-weight: 700;
+}
+.box-container {
+  margin: 0 0 1rem 0;
+}
+
+.sm-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .checkout-section {
+    margin: 1rem 0;
+    padding: 0 2rem;
+  }
+}

@@ -1,0 +1,10 @@
+.filter-option {
+  margin: 0.5rem 0 0 0;
+}
+.input-option {
+  margin: 0 0.5rem 0 0;
+}
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+}

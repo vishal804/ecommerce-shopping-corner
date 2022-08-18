@@ -37,7 +37,9 @@ const HomePage = () => {
 
         <div className="shop-card card-style flex flex-space-between">
           {categories.length !== 0 &&
-            categories.map((category,index) => <CategoryCard key={index} value={category} />)}
+            categories.map((category, index) => (
+              <CategoryCard key={index} value={category} />
+            ))}
         </div>
       </section>
 
@@ -50,9 +52,10 @@ const HomePage = () => {
                 className="category-img-responsive"
                 src={shopcategory}
                 alt="shopcategory"
-                onClick={() =>
-                  dispatch({ type: "SORT_BY_IDEALFOR", payload: "Men" })
-                }
+                onClick={() => {
+                  dispatch({ type: "SORT_BY_IDEALFOR_REMOVE" });
+                  dispatch({ type: "SORT_BY_IDEALFOR", payload: "Men" });
+                }}
               />
               <div className="title">Shop For Him</div>
             </Link>
@@ -64,9 +67,10 @@ const HomePage = () => {
                 className="category-img-responsive"
                 src={shopcategory}
                 alt="shopcategory"
-                onClick={() =>
-                  dispatch({ type: "SORT_BY_IDEALFOR", payload: "Women" })
-                }
+                onClick={() => {
+                  dispatch({ type: "SORT_BY_IDEALFOR_REMOVE" });
+                  dispatch({ type: "SORT_BY_IDEALFOR", payload: "Women" });
+                }}
               />
               <div className="title">Shop For Her</div>
             </Link>

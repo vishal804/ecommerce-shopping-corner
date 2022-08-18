@@ -11,6 +11,11 @@ const initialState = {
     sortBySize: [],
     sortByIdealFor: [],
   },
+  addresses: {
+    address: [],
+    selectedAddress: {},
+    showAddressModal: false,
+  },
 };
 
 const dataReducer = (state, action) => {
@@ -119,6 +124,16 @@ const dataReducer = (state, action) => {
               ),
             },
           };
+
+    case "SORT_BY_CATEGORY_REMOVE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortByCategory: [],
+        },
+      };
+
     case "SORT_BY_IDEALFOR":
       return state.filters.sortByIdealFor.includes(action.payload)
         ? {
@@ -140,6 +155,15 @@ const dataReducer = (state, action) => {
             },
           };
 
+    case "SORT_BY_IDEALFOR_REMOVE":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          sortByIdealFor: [],
+        },
+      };
+
     case "SORT_BY_SIZE":
       return state.filters.sortBySize.includes(action.payload)
         ? {
@@ -158,6 +182,23 @@ const dataReducer = (state, action) => {
               sortBySize: state.filters.sortBySize.concat(action.payload),
             },
           };
+
+    case "SET_ADDRESS":
+      return {
+        ...state,
+        addresses: { ...state.addresses, address: action.payload },
+      };
+    case "SET_SELECTED_ADDRESS":
+      return {
+        ...state,
+        addresses: { ...state.addresses, selectedAddress: action.payload },
+      };
+
+    case "SHOW_ADDRESS_MODAL":
+      return {
+        ...state,
+        addresses: { ...state.addresses, showAddressModal: action.payload },
+      };
 
     default:
       return state;

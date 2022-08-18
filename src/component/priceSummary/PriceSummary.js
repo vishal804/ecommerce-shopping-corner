@@ -1,10 +1,12 @@
 import React from "react";
-import { useData } from "../../context/data-context";
 import "./priceSummary.css";
+import { InfoToast } from "../toast/InfoToast";
+import { useData } from "../../context/data-context";
+import { Link, useLocation } from "react-router-dom";
 
 const PriceSummary = () => {
   const { state } = useData();
-
+  const location = useLocation();
   const priceDetails = state.cart.reduce(
     ({ total, originalPrice }, curr) => {
       total = total + curr.priceAfterDiscount * curr.qty;
@@ -42,9 +44,20 @@ const PriceSummary = () => {
           <span>{priceDetails.total}</span>
         </div>
         <hr />
-        <button className="btn btn-link btn-lg">
-          <p>PLACE ORDER</p>
-        </button>
+        {location.pathname === "/cart" ? (
+          <Link to="/checkout">
+            <button className="btn btn-link btn-lg">Checkout</button>
+          </Link>
+        ) : (
+          <button
+            className="btn btn-link btn-lg"
+            onClick={() => {
+              InfoToast("Payment gateway feature will come here");
+            }}
+          >
+            Place Order
+          </button>
+        )}
       </div>
     </>
   );
